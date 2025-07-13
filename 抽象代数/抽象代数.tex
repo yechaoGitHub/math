@@ -591,5 +591,114 @@ $$\phi _{\alpha}(f(x))=a_0+a_1\alpha+\cdots +a_n\alpha^n$$
 如果$f(\alpha)=0$,则$\alpha$是f(x)的零点\textnormal{(zero)};
 \end{definition}
 
+\section{域上多项式的因式分解}
+
+\begin{definition}{}{}
+设F是一个域,$f(x),g(x),s(x)\in F[x]$且$g(x)\neq 0$.如果
+$$\textnormal{deg}(f(x)-g(x)s(x))\geqslant  \textnormal{(g(x))}$$
+则存在多项式$s_1(x)\in F[x]$,使得
+$$\textnormal{deg}(f(x)-g(x)s_1(x))<\textnormal{deg}(f(x)-g(x)s(x))$$
+或
+$$f(x)-g(x)s_1(x)=0$$
+\end{definition}
+
+\section{F[x]上的带余除法}
+
+设$$f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots +a_0$$和
+$$g(x)=b_mx^m+b_{m-1}x^{m-1}+\cdots +b_0$$
+是$F[x]$的两个元素,其中$a_n$和$b_m$都是F的非零元,且$m>0$,则在$F[x]$中存在唯一的多项式$q(x)$和$r(x)$,
+使得$f(x)=g(x)q(x)+r(x)$,其中$r(x)=0$或$r(x)$的次数小于$g(x)$的次数m.\\
+
+$\mathbb{Z}_5[x]$中多项式$$f(x)=x_4-3x^3+2x^2+4x-1$$
+用$g(x)=x^2-2x+3$来除,得到$q(x)=x^2-x-3$和$r(x)=x+3$
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[scale=0.5]
+    \draw(-2, -1.5)--(2.2, -1.5);
+    \draw(2.2, -1.5)--(2.2, -0.6);
+    \draw(2.2, -0.6)--(13.5, -0.6);
+
+    \node at(0, -1){$x^2-2x+3$};
+
+    \node at(3, 0){$x^2$};
+    \node at(5.5, 0){$-x$};
+    \node at(8, 0){$-3$};
+
+    \node at(3, -1){$x^4$};
+    \node at(5.5, -1){$-3x^3$};
+    \node at(8, -1){$+2x^2$};
+    \node at(10.5, -1){$+4x$};
+    \node at(13, -1){$-1$};
+
+    \node at(3, -2){$x^4$};
+    \node at(5.5, -2){$-2x^3$};
+    \node at(8, -2){$+3x^2$};
+
+    \draw(2.2, -2.6)--(13.5, -2.6);
+
+    \node at(5.5, -3){$-x^3$};
+    \node at(8, -3){$-x^2$};
+    \node at(10.5, -3){$+4x$};
+
+    \node at(5.5, -4){$-x^3$};
+    \node at(8, -4){$+2x^2$};
+    \node at(10.5, -4){$-3x$};
+
+    \draw(3.5, -4.6)--(13.5, -4.6);
+
+    \node at(8, -5){$-3x^2$};
+    \node at(10.5, -5){$+2x$};
+    \node at(13, -5){$-1$};
+
+    \node at(8, -6){$-3x^2$};
+    \node at(10.5, -6){$+x$};
+    \node at(13, -6){$-4$};
+
+    \draw(5, -6.6)--(13.5, -6.6);
+
+    \node at(10.5, -7){$x$};
+    \node at(13, -7){$+3$};
+
+  \end{tikzpicture}
+\end{figure}
+
+\begin{definition}{因式分解定理}{}
+元素$a\in F$是$f(x)\in F[x]$的零点当且仅当$x-a$是$F[x]$中的$f(x)$的因式.
+\end{definition}
+
+\begin{definition}{}{}
+非零n次多项式$f(x)\in F[x]$在域F中最多有n个零点.
+\end{definition}
+
+\begin{definition}{}{}
+非常数多项式$f(x)\in F[x]$在F上称为不可约\textnormal{(irreducible)}或$F[x]$上的不可约多项式\textnormal{(irreducible polynomial)},
+如果f(x)不能表示为$F[x]$中的两个次数低于$f(x)$的多项式$g(x)$和$h(x)$的乘积$g(x)h(x)$.如果非常数多项式$f(x)\in F[x]$不是F上不可约的,则称$f(x)$为在F上可约的\textnormal{(reducible)}.
+\end{definition}
+
+\begin{definition}{}{}
+设$f(x)\in F[x]$,且$f(x)$的次数为\textnormal{2}或\textnormal{3}.那么$f(x)$在F上是可约的当且仅当它在F中有一个零点.
+\end{definition}
+
+\begin{definition}{}{}
+如果$f(x)\in \mathbb{Z}[x]$,则在$\mathbb{Q}[x]$中$f(x)$能分解为两个更低次数r和s的因式的乘积,当且仅当它在$\mathbb{Z}[x]$中具有相同次数r和s的因式分解.
+\end{definition}
+
+\begin{definition}{}{}
+如果在$\mathbb{Z}[x]$中$f(x)=x^n+a_{n-1}xn^{n-1}+\cdots +a_0,a_0\neq 0$,且$f(x)$在$\mathbb{Q}$中有零点,则它在$\mathbb{Z}$中有零点m,且m比整除$a_0$.
+\end{definition}
+
+\begin{definition}{艾森斯坦准则}{}
+设$p\in \mathbb{Z}为素数$.假设$f(x)=a_nx^n+\cdots +a_0$在$\mathbb{Z}[x]$中,
+且$a\not \equiv 0\>(\textnormal{mod}\>p)$,
+但对于所有$i<n$,$a_i\equiv 0\>(\textnormal{mod}\>p)$,
+其中$a_0\not \equiv 0\>(\textnormal{mod}\>p^2)$,则f(x)在$\mathbb{Q}$上不可约.
+\end{definition}
+
+\section{$F[x]$中因式分解的唯一性}
+
+\begin{definition}{}{}
+如果F是一个域,那么每个非常数多项式$f(x)\in F[x]$都可以在$F[x]$中分解为不可约多项式的乘积,这些不可约多项式除了次序和F中的单位\textnormal{(也就是非零常数)}因子是唯一得到.
+\end{definition}
 
 \end{document}
