@@ -428,5 +428,168 @@ p群的定义有两种常见形式,分别适用于有限群和无限群:
 如果p和q是满足p<q的素数,那么每个阶为pq的群G都有一个q阶单子群,且这个子群在G中是正规的.因此G不是单群.如果q不是模p同余于1,则G是交换的且是循环的.
 \end{definition}
 
+\chapter{环和域}
+
+\begin{definition}{}{}
+环\textnormal{(ring)}$\langle R, +, \cdot\rangle$是一个集合R上具有两种二元运算 + 和 $\cdot$,分别称为加法和乘法,满足以下公理:
+\begin{enumerate}
+  \item $\langle r,+\rangle$是交换群.
+  \item 乘法满足结合律.
+  \item 对于所有$a,b,c\in R$,满足左分配律,$a\cdot (b+c)=(a\cdot b)+(a\cdot c)$和\\
+  右分配律$(a+b)\cdot c=(a\cdot c)+(b\cdot c)$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}{}{}
+设R是有加法单位0的环,则对于任何$a,b\in R$,有
+\begin{enumerate}
+  \item $0a=a0=0$.
+  \item $a(-b)=(-a)b=-(ab)$.
+  \item $(-a)(-b)=ab$.
+\end{enumerate}
+\end{definition}
+
+
+\section{同态和同构}
+
+\begin{definition}{}{}
+对环R和$R'$,映射$\phi :R\rightarrow R'$称为一个同态,如果对所有$a,b\in R$满足以下两个条件:
+\begin{enumerate}
+  \item $\phi (a+b)=\phi (a)+\phi (b)$.
+  \item $\phi (ab)=\phi (a)\phi (b)$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}{}{}
+从环R到环$R'$的即单又满的同态$\phi :R\rightarrow R'$称为同构\textnormal{(isomorphism)}.\\
+环R和$R'$称为是同构\textnormal{(isomorphic)}.
+\end{definition}
+
+\section{乘法问题:域}
+
+\begin{definition}{}{}
+称一个对乘法有交换律的环为交换环(commutative ring).有乘法单位元的环称为幺环\textnormal{(ring with unity)};\\
+乘法单位元\textnormal{1}称为幺元\textnormal{(unity)}.
+\end{definition}
+
+\begin{definition}{}{}
+设R为有单位元$1\neq 0$的环.R中元素u称为R的单位\textnormal{(unity)},如果它在R中有乘法逆元.\\
+如果R的每个非零元都是单位,则R称为除环\textnormal{(division ring)}\textnormal{(或斜域,skew field)}.\\
+交换除环称为域\textnormal{(field)}.非交换除环称为严格斜域\textnormal{(strictly skew field)}.
+\end{definition}
+
+$1\neq 0$的是指环R中的乘法单位元1和加法单位元0,两者不相等.
+
+\section{整环}
+
+\begin{definition}{}{}
+如果a和b是环R的两个非零元满足ab=0,则a和b称为零因子(0divisor).
+\end{definition}
+
+\begin{definition}{}{}
+设$m\in \mathbb{Z}_n$.要么m=0;要么m与n互素,这时m是$\mathbb{Z}_n$中的单位;\\
+或者m与n不互素,这是m是$\mathbb{Z}_n$中的零因子.
+\end{definition}
+
+\begin{definition}{}{}
+如果p是一个素数,则$\mathbb{Z}_p$的每个非零元都是一个单位,这意味这$\mathbb{z}_p$是一个域且没有零因子.
+\end{definition}
+
+\begin{definition}{环的消去律}{}
+设R为一个环,$a,b,c\in R$.R中的消去律\textnormal{(cancellation law)}指乘法消去律:如果ab=ac,其中$a\neq 0$,\\
+则有b=c,以及ba=ca.当然R中的加法消去律成立,因为$\langle R,+\rangle$是一个群.
+\end{definition}
+
+\begin{definition}{}{}
+环R中消去律成立当且仅当R没有零因子.
+\end{definition}
+
+\begin{definition}{}{}
+有单位元$1\neq 0$的\textbf{无零因子的交换环D称为整环(integral domain)}.
+\end{definition}
+如果一个多项式的系数取自整环,则可以通过将多项式因式分解成线性因子并令每个因式等于0来求解多项式方程.
+
+\begin{definition}{}{}
+有限整环都是域.
+\end{definition}
+
+\begin{definition}{}{}
+如果对于一个环R存在一个正整数n,使得对于所有$a\in R$有$n\cdot a=0$,则其中的最小正整数称为环R的特征\textnormal{(characteristic)}.\\
+如果没有这种正整数,则称环R有特征0.
+\end{definition}
+
+\section{费马定理和欧拉定理}
+
+\begin{definition}{费马小定理}{}
+如果$a\in \mathbb{Z}$且p是不整除a的素数,则p整除$a^{p-1}-1$,\\
+即对于$a\not\equiv 0\>(\textnormal{mod}\>p)$,有$a^{p-1}\equiv 1\>(\textnormal{mod}\>p)$.
+\end{definition}
+
+\begin{definition}{欧拉定理}{}
+如果a是一个与n互素的整数,则$a^{\varphi (n)}-1$可被n整除,即$a^{\varphi (n)}\equiv 1\>(\textnormal{mod}\>p)$.
+\end{definition}
+
+设n为正整数.$\varphi (n)$定义为小于或等于n的与n互素的正整数的个数.注意$\varphi (1)=1$.
+
+\section{应用于$ax\equiv b\>(\textnormal{mod}\>m)$}
+
+\begin{definition}{}{}
+如果a与m互素,则对于任何整数b,同余式$ax\equiv b\>(\textnormal{mod}\>m)$的解恰好是一个模m剩余类中的所有整数.
+\end{definition}
+
+\begin{definition}{}{}
+设m为正整数,$a,b\in \mathbb{Z}_m$.设d为a和m的最大公因子.方程$ax=b$在$\mathbb{Z}_m$中有解,当且仅当d整除b.当d整除b时,方程在$\mathbb{Z}_m$中恰好有d个解.
+\end{definition}
+
+\begin{definition}{}{}
+设d是正整数a和m的最大公因子. 同余式$ax\equiv b\>(\textnormal{mod}\>m)$有解,当且仅当d整除b.在这种情况下,解恰好是模m的d个不同剩余类得的整数.
+\end{definition}
+
+\chapter{环和域的构造}
+
+\section{整环的商域}
+设L是一个域,D是包换单位元的L的子环.环D是一个整环,因为它没有零因子.F是所有形如$\frac{a}{b}$的商的集合,其中a和$b\neq 0$是D中的元素,形成L的子域.
+域F称为整环D的商域.\\
+例:设$L=\mathbb{R}$.如果$D=\mathbb{Z}$,则$$F=\{\frac{a}{b}|a,b\in \mathbb{Z},b\neq 0\}=\mathbb{Q}$$是一个域.
+
+\begin{definition}{}{}
+设F是D的商域,L是包含D的任意一个域,则存在映射$\psi :F\rightarrow L$给出F与L的子域的一个同构使得$\psi (a)=a$,其中$a\in D$.
+\end{definition}
+
+\begin{definition}{}{}
+每个包含整环D的域L都包含D的商域.
+\end{definition}
+
+\begin{definition}{}{}
+整环D的任何两个商域是同构的.
+\end{definition}
+
+\section{多项式环}
+
+\begin{definition}{}{}
+设R为环.系数在R中的多项式\textnormal{(polynomial)}f(x)定义为无限和形式$$\sum_{i=0}^{\infty}a_ix^i=a_0+a_1x+\cdots +a_nx^n +\cdots$$
+其中$a_i\in R$,且除有限个i之外,都有$a_i=0$.称为$f(x)$的系数\textnormal{(coefficient)}.对于$i\geq 0,a_i \neq 0$中i的最大值,称为$f(x)$的次数\textnormal{(degree)}.
+如果所有$a_i=0$,则不定义f(x)的次数.
+\end{definition}
+
+\begin{definition}{}{}
+系数在环R中的x的多项式的集合$R[x]$在多项式加法和乘法下构成一个环.如果R是交换的,那么$R[x]$也是交换的.如果R有单位元$1\neq 0$,则1也是$R[x]$的单位元.
+\end{definition}
+
+\section{求值同态}
+
+\begin{definition}{域论的求值同态}{}
+设F是域E的子域,设$\alpha $是E的任意元素,且设x是一个不定元.映射$\phi _{\alpha}:F[x]\rightarrow E$,定义为
+$$\phi _{\alpha}(a_0+a_1x+\cdots +a_nx^n)=a_0+a_1\alpha+ \cdots +a_n\alpha^n$$
+对$(a_0+a_1x+\cdots +a_nx^n)\in F[x]$,它是$F[x]$到E的同态.同时$\phi (x)=\alpha$且$\phi_{\alpha}$在F上是恒等映射;
+也就是说,对于$a\in F$有$\phi_{\alpha}=a$.同态$\phi _\alpha(a)=a$.同态$\phi _\alpha$是在$\alpha$处的求值.
+\end{definition}
+
+\begin{definition}{}{}
+设F是域E的子域,$\alpha$是E的元素.设$f(x)=a_0+a_1x+\cdots +a_nx^n\in F[x]$.设$\phi _{\alpha}:F[x]\rightarrow E$是求值同态.设$f(\alpha)$表示
+$$\phi _{\alpha}(f(x))=a_0+a_1\alpha+\cdots +a_n\alpha^n$$
+如果$f(\alpha)=0$,则$\alpha$是f(x)的零点\textnormal{(zero)};
+\end{definition}
+
 
 \end{document}
