@@ -1,0 +1,88 @@
+\documentclass[oneside,openany]{ctexbook}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[most]{tcolorbox}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{tikz}
+
+\setlength{\parindent}{0pt}
+
+\newtcbtheorem[number within = section]{definition}{定义}{%
+  colback = green!5,
+  colframe = green!50!black,
+  colbacktitle = green!50!black,
+  coltitle = white,
+  fonttitle = \bfseries,
+  fontupper = \itshape,
+  attach boxed title to top left = {yshift=-2mm, xshift=5mm},
+  separator sign none,
+  description delimiters = {(}{)},
+  enhanced
+}{mydefinition}
+
+\begin{document}
+\begin{definition}{克罗内克定理}{}
+设F是一个域,$f(x)$是$F[x]$的非常数多项式,那么存在F的扩域E,且$a\in E$使得$f(\alpha)=0$.
+\end{definition}
+
+证明:\\
+设$p(x)\in F(x)$,是不可约多项式.$\langle p(x)\rangle$是$F[x]$中的极大理想(定理1),因此
+$F[x]/\langle p(x)\rangle$是一个域(定理2).对于$a\in F$,利用$$\psi (a)=a+\langle p(x)\rangle$$
+给出的映射$\psi :F\rightarrow F[x]/\langle p(x)\rangle$,可以把F自然地等同于$F[x]\langle p(x)\rangle$的子域(商环的元素).
+这个映射是单的,如果$\psi(a)=\psi(b)$,也就是说,对于$a,b\in F$,如果$a+\langle p(x)\rangle = b+\langle p(x)\rangle$,
+那么$a-b\in \langle p(x)\rangle$,所以$a-b$是多项式$p(x)$的倍式.现在$a,b\in F$,意味着$a-b$在F中,因此有$a-b=0$,所以$a=b$.
+在$F[x]/\langle p(x)\rangle$中,通过代表元定义加法和乘法,因此可以选择$a\in (a+\langle p(x)\rangle)$.因此$\psi$是把F即单又满地映射到$F[x]/\langle p(x)\rangle$的一个子域的同态.
+利用这个映射$\psi$把F等同于$\{a+\langle p(x)\rangle |a\in f\}$.因此将$E=F[x]/\langle p(x)\rangle$视为F的一个扩域.现在已经构造了所需要的F的扩域E,
+剩下需要证明E包含$p(x)$的零点.\\
+设$$\alpha =x+\langle p(x)\rangle,\alpha \in E$$,
+考虑赋值同态$\phi _{\alpha}:F[x]\rightarrow E$.如果$p(x)=a_0+a_1x+\cdots +a_nx^n$,其中$a_i \in F$,则
+$$\phi _{\alpha}(p(x))=a_0+a_1(x+\langle p(x)\rangle)+\cdots +a_n(x+\langle p(x)\rangle)^n \in E = F[x]/\langle p(x)\rangle$$
+可以通过选择代表元计算$F[x]/\langle p(x)\rangle$,x是陪集$\alpha =x+\langle p(x)\rangle$的代表元.因此,
+\begin{align*}
+ &   p(\alpha)=a_0+a_1x+\cdots +a_nx^n+\langle p(x)\rangle\\
+ & =p(x)+\langle p(x)\rangle=\langle p(x)\rangle = 0\in F[x]/\langle p(x)\rangle
+\end{align*}
+
+在$E=F[x]/\langle p(x)\rangle$中找到了一个元素$\alpha$,使得$p(\alpha)=0$,因此$f(\alpha)=0$.
+
+\newpage
+
+使用的定理:
+\begin{enumerate}
+    \item $F[x]$的理想$\langle p(x)\rangle \neq {0}$是极大理想,当且仅当$p(x)$在F上不可约.
+    \item 设R是有单位元的交换环,那么M是R的极大理想,当且仅当$R/M$是一个域.
+\end{enumerate}
+
+补充说明:
+\begin{enumerate}
+  \item 商环的元素:\\
+商环的构造本质上是对原环中的元素按等价关系进行分类，每个等价类就是商环的一个元素。
+以$F[x]/\langle p(x)\rangle$举例,在$F[x]$中，通过理想$\langle p(x) \rangle$可以定义一个等价关系:\\
+对于两个多项式$f(x), g(x) \in F[x]$,若它们的差属于$\langle p(x)\rangle$，即$f(x)-g(x) \in \langle p(x)\rangle$则称$f(x)$与$g(x)$等价,记为$f(x) \sim g(x)$.\\
+陪集 $f(x)+ \langle p(x) \rangle$就是所有与$f(x)$等价的多项式的集合:$f(x)+\langle p(x) \rangle =\{ g(x) \in F[x] \mid g(x) \sim f(x) \}$.\\
+例:
+\begin{enumerate}
+  \item $\mathbb{Z}/n\mathbb{Z}$，元素是"模n的剩余类"$a + n\mathbb{Z}$,本质是将相差n的倍数的整数视为"相同".\\
+  例如$\mathbb{Z}/3\mathbb{Z}$中只有3个元素,分别是:
+  \begin{enumerate}
+    \item $\overline{0}$\>包含所有能被3整除的整数:$\overline{0}= \{ \dots, -6, -3, 0, 3, 6, 9, \dots \}$.
+    \item $\overline{1}$\>包含所有模3余1的整数:$\overline{0}= \{ \dots, -5, -2, 1, 4, 7, 10, \dots \}$.
+    \item $\overline{2}$\>包含所有模3余2的整数:$\overline{2}= \{ \dots, -4, -1, 2, 5, 8, 11, \dots \}$.
+  \end{enumerate}
+
+  \item 多项式商环$F[x]/\langle I\rangle$,$F[x]$是F上的多项式环,I是$F[x]$中的一个理想.多项式商环$F[x]/I$中的每个元素都是一个等价类,定义为:对于多项式$f(x) \in F[x]$，其对应的等价类为:$\overline{f(x)} \;=\; \{ g(x) \in F[x] \mid g(x) - f(x) \in I \}$.
+  对于任意多项式$f(x) \in F[x]$，根据多项式的带余除法:存在唯一的商式$q(x)$和余式$r(x)$，使得:$f(x)=q(x) \cdot p(x)+r(x)$
+  其中$r(x) = 0$或$\deg(r) < \deg(p)$.由于$f(x)-r(x)=q(x) \cdot p(x) \in \langle p(x) \rangle$，即$f(x) \equiv r(x) \mod \langle p(x) \rangle$，因此$\overline{f(x)}=\overline{r(x)}$.这意味着:商环$F[x]/\langle p(x) \rangle$中的每个元素都能唯一表示为一个次数小于$\deg(p)$的多项式的等价类.\\
+  例如:$\mathbb{R}[x]/\langle x^2 + 1 \rangle$中的元素可表示为$a + bx + \langle x^2 + 1 \rangle$，其中$a, b \in \mathbb{R}$.
+  \end{enumerate}
+\end{enumerate}
+
+
+\end{document}
